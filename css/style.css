@@ -6,7 +6,8 @@
  :root {
     --primary: #00ccff;
     --primary-lighter: #71e3ff;
-    --primary-darker: #0094b9;
+    --primary-darker: rgba(211, 22, 22, 0.911);
+    --resume-title: white;
 }
 
 html {
@@ -358,7 +359,7 @@ a.brand:focus {
     right: 0;
     width: 100%;
     z-index: 100;
-    background-color: rgba(32, 32, 32, 0.95);
+    background-color: rgba(14, 35, 41, 0.521);
     -webkit-transform: translateX(100%);
     -ms-transform: translateX(100%);
     -o-transform: translateX(100%);
@@ -478,7 +479,7 @@ a.brand:focus {
 }
 
 .menu-is-opened .click-capture {
-    visibility: visible
+    visibility: visible;
 }
 
 .menu-is-opened .menu {
@@ -560,7 +561,7 @@ a.brand:focus {
     position: relative;
     background: var(--primary-darker);
     padding: 1rem;
-    color: #000;
+    color: var(--resume-title);
     text-align: center;
     margin: 0
 }
@@ -926,14 +927,14 @@ a.brand:focus {
 
 .icon-tech-wrapper {
     display: grid;
-    grid-template-columns: 18% 18% 18% 18%;
-    column-gap: 8%;
-    row-gap: 1.75em;
+    grid-template-columns: 25% 25% 25% 25%;
+    column-gap: 10%;
+    row-gap: 1.8em;
+    width: 100%;
 }
 
 .icon-item {
-    width: 100%;
-    height: 100%;
+    width: 50%;
 }
 
 @media(max-width:1540px) {

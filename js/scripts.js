@@ -1,12 +1,10 @@
 (function($) {
     'use strict';
     const surl = {
-        instagram: "https://www.instagram.com/azizfath_",
-        facebook: "https://www.facebook.com/aziz.fathurrahman.35",
-        linkedin: "https://www.linkedin.com/in/azizfath",
-        whatsapp: "https://wa.me/6285229222123",
-        youtube: "https://www.youtube.com/channel/UCsACwMsf3w_bccB4wPtvnZA",
-        github: "https://github.com/azizfath"
+        instagram: "https://www.instagram.com/ullhaq_ali",
+        linkedin: "https://www.linkedin.com/in/ali-faishal-51006423a",
+        whatsapp: "https://wa.me/6281252283473",
+        github: "https://github.com/ishala"
     }
     var navbar = $('.js-navbar:not(.navbar-fixed)');
 
