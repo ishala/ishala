@@ -14,7 +14,7 @@ I thrive on tackling complex challenges by leveraging the power of big data. My 
   <img alt="CSS" width="50px" style="padding-right:10px;" src="https://icongr.am/devicon/css3-original.svg?size=128&color=currentColor"/>
   <img alt="Javascript" width="50px" style="padding-right:10px;" src="https://icongr.am/devicon/javascript-original.svg?size=128&color=currentColor"/>
   <img alt="React" width="50px" style="padding-right:10px;" src="https://icongr.am/devicon/react-original.svg?size=128&color=currentColor"/>
-  <img alt="TensorFlow" width="50px" style="padding-right:10px;" src="https://github.com/user-attachments/assets/8759941f-0c96-4b8d-bf85-1c434c277ed0"/>
+  <img alt="TensorFlow" width="50px" style="padding-right:10px;" src="https://github.com/user-attachments/assets/01481f36-84b0-432d-a762-570a044e733d"/>
 </div>
 
 <br><br>
