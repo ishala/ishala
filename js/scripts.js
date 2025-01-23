@@ -2,7 +2,7 @@
     'use strict';
     const surl = {
         instagram: "https://www.instagram.com/ullhaq_ali",
-        linkedin: "https://www.linkedin.com/in/ali-faishal-51006423a",
+        linkedin: "https://www.linkedin.com/in/muhammad-faishal-51006423a",
         whatsapp: "https://wa.me/6281252283473",
         github: "https://github.com/ishala"
     }
