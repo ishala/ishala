@@ -2,7 +2,7 @@ import { Container } from '@/components/layout/Container';
 import { SocialLinks } from '@/components/layout/SocialLinks';
 import { MonoLabel } from '@/components/primitives/MonoLabel';
 import { OutlinedButton } from '@/components/primitives/OutlinedButton';
-import { navSections, profile, socialUrls } from '@/data/profile';
+import { navSections, profile, sections, socialUrls } from '@/data/profile';
 
 export function Nav() {
   return (
@@ -10,8 +10,11 @@ export function Nav() {
       <Container>
         {/* Tanpa utility order: urutan DOM, urutan tab, dan urutan visual sama di semua lebar */}
         <nav aria-label="Main" className="flex flex-wrap items-center gap-x-32 gap-y-16 py-20">
-          <a href="#page1" className="text-ice-white transition-colors hover:text-signal-orange">
-            <MonoLabel>{profile.wordmark}</MonoLabel>
+          <a
+            href={`#${sections.introduction.id}`}
+            className="text-ice-white transition-colors hover:text-signal-orange"
+          >
+            <MonoLabel>{profile.fullName}</MonoLabel>
           </a>
 
           <ul className="flex w-full flex-wrap items-center gap-x-32 gap-y-8 md:ml-auto md:w-auto">
@@ -27,11 +30,10 @@ export function Nav() {
             ))}
           </ul>
 
-          <div className="ml-auto flex items-center gap-24 md:ml-0">
+          {/* Rata kanan hanya saat baris nav terbelah; di satu baris (lg) blok ini menempel pada menu */}
+          <div className="flex items-center gap-24 md:ml-auto lg:ml-0">
             <SocialLinks />
-            <OutlinedButton href={socialUrls.WhatsApp} external>
-              Get in touch
-            </OutlinedButton>
+            <OutlinedButton href={socialUrls.WhatsApp}>Get in touch</OutlinedButton>
           </div>
         </nav>
       </Container>

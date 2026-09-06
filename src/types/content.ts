@@ -17,6 +17,8 @@ export interface Paragraph {
 export interface TechIconItem {
   label: string;
   src: string;
+  width: number;
+  height: number;
 }
 
 export interface Course {

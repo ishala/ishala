@@ -33,8 +33,18 @@
   --leading-display: 1;
   --tracking-display: -2.88px;
 
+  /* Typography — Fluid steps added for this build: nama 30 karakter tidak muat pada 96px/64px mati */
+  --text-hero: clamp(32px, 9vw, 96px);
+  --leading-hero: 1;
+  --tracking-hero: -0.03em;
+  --text-title: clamp(28px, 6.5vw, 64px);
+  --leading-title: 1.06;
+  --tracking-title: -0.01em;
+  /* Paragraf panjang butuh leading lebih longgar daripada 1.24 milik heading-sm */
+  --leading-prose: 1.6;
+
   /* Spacing */
-  /* Mematikan skala kelipatan bawaan Tailwind agar kunci di luar daftar ini gagal, bukan diam-diam jadi n*0.25rem */
+  /* Mematikan skala kelipatan bawaan Tailwind: kunci di luar daftar ini tidak dihasilkan sama sekali, tanpa error, bukan diam-diam jadi n*0.25rem */
   --spacing: initial;
   --spacing-0: 0px;
   --spacing-4: 4px;
@@ -44,6 +54,7 @@
   --spacing-20: 20px;
   --spacing-24: 24px;
   --spacing-32: 32px;
+  --spacing-40: 40px;
   --spacing-80: 80px;
   --spacing-100: 100px;
   --spacing-148: 148px;
@@ -52,6 +63,9 @@
 
   /* Layout — added for this build, DESIGN.md "Layout" section */
   --container-page: 1400px;
+  --container-prose: 600px;
+  /* max-w-* membaca --max-width-* lebih dulu, jadi bawaan prose 65ch harus dimatikan agar token di atas menang */
+  --max-width-prose: initial;
 
   /* Border Radius */
   --radius-lg: 8px;

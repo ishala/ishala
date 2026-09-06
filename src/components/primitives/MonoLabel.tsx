@@ -1,16 +1,13 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ComponentPropsWithoutRef, ElementType } from 'react';
 import { cn } from '@/lib/cn';
 
-interface MonoLabelProps {
-  children: ReactNode;
+interface MonoLabelProps extends ComponentPropsWithoutRef<'span'> {
   as?: ElementType;
-  id?: string;
-  className?: string;
 }
 
-export function MonoLabel({ children, as: Tag = 'span', id, className }: MonoLabelProps) {
+export function MonoLabel({ as: Tag = 'span', children, className, ...rest }: MonoLabelProps) {
   return (
-    <Tag id={id} className={cn('font-mono text-caption uppercase tracking-caption', className)}>
+    <Tag className={cn('font-mono text-caption uppercase tracking-caption', className)} {...rest}>
       {children}
     </Tag>
   );

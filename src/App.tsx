@@ -1,25 +1,29 @@
 import { Footer } from '@/components/layout/Footer';
 import { Nav } from '@/components/layout/Nav';
 import { Section } from '@/components/layout/Section';
-import { hero, about } from '@/data/profile';
+import { About } from '@/components/sections/About';
+import { Hero } from '@/components/sections/Hero';
+import { Heading } from '@/components/primitives/Heading';
+import { sections } from '@/data/profile';
+
+const resumeHeadingId = 'resume-heading';
 
 export function App() {
   return (
     <>
       <Nav />
       <main>
-        <Section id="page1" label="Introduction">
-          <p className="text-heading-sm leading-heading-sm tracking-heading-sm">{hero.leadIn}</p>
-        </Section>
+        <Hero />
+        <About />
 
-        <Section id="page2" label={about.label}>
-          <p className="text-heading-sm leading-heading-sm tracking-heading-sm">
-            {about.titleNeutral}
-          </p>
-        </Section>
-
-        <Section id="page3" label="Resume">
-          <p className="text-heading-sm leading-heading-sm tracking-heading-sm">Resume</p>
+        <Section
+          id={sections.resume.id}
+          label={sections.resume.label}
+          headingId={resumeHeadingId}
+        >
+          <Heading as="h2" size="sm" id={resumeHeadingId}>
+            {sections.resume.label}
+          </Heading>
         </Section>
       </main>
       <Footer />

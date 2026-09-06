@@ -1,13 +1,18 @@
+import portrait from '@/assets/aku.jpg';
 import jupyterIcon from '@/assets/icons/jupyter.png';
 import mysqlIcon from '@/assets/icons/mysql.svg';
 import pythonIcon from '@/assets/icons/python.svg';
 import tensorflowIcon from '@/assets/icons/tensorflow.png';
-import type { Paragraph, SocialLink, SocialPlatform, TechIconItem } from '@/types/content';
+import type {
+  Paragraph,
+  SocialLink,
+  SocialPlatform,
+  TechIconItem,
+  TextSegment,
+} from '@/types/content';
 
 export const profile = {
   fullName: 'Muhammad Faishal Ali Dhiaulhaq',
-  wordmark: 'Muhammad Faishal Ali Dhiaulhaq',
-  tagline: 'Data Enthusiast & Web Developer',
 };
 
 export const socialUrls: Record<SocialPlatform, string> = {
@@ -17,34 +22,41 @@ export const socialUrls: Record<SocialPlatform, string> = {
   WhatsApp: 'https://wa.me/6281252283473',
 };
 
-// Urutan tampil di navbar dan footer
-export const socialLinks: SocialLink[] = [
-  { platform: 'LinkedIn', url: socialUrls.LinkedIn },
-  { platform: 'GitHub', url: socialUrls.GitHub },
-  { platform: 'Instagram', url: socialUrls.Instagram },
-  { platform: 'WhatsApp', url: socialUrls.WhatsApp },
-];
+// Urutan tampil di navbar dan footer mengikuti urutan kunci socialUrls
+export const socialLinks: SocialLink[] = (Object.keys(socialUrls) as SocialPlatform[]).map(
+  (platform) => ({ platform, url: socialUrls[platform] }),
+);
 
-export const navSections = [
-  { id: 'page1', label: 'Introduction' },
-  { id: 'page2', label: 'About Me' },
-  { id: 'page3', label: 'Resume' },
-] as const;
+export const sections = {
+  introduction: { id: 'page1', label: 'Introduction' },
+  about: { id: 'page2', label: 'About Me' },
+  resume: { id: 'page3', label: 'Resume' },
+} as const;
+
+export const navSections = [sections.introduction, sections.about, sections.resume];
 
 export const hero = {
   label: 'Please, take a seat!',
   leadIn: 'My Name Is',
-  name: 'Muhammad Faishal Ali Dhiaulhaq',
   closing: 'Thanks for the attention!',
 };
 
 export const about = {
-  label: 'About Me',
-  titleAccent: ['Data Analytics', 'Machine Learning'],
-  titleNeutral: 'Enthusiast',
+  portraitSrc: portrait,
   portraitAlt: 'Portrait of Muhammad Faishal Ali Dhiaulhaq',
+  // Ukuran intrinsik berkas, dipakai agar browser bisa memesan ruang sebelum gambar termuat
+  portraitWidth: 958,
+  portraitHeight: 1600,
   techLabel: 'Commonly used',
 };
+
+// emphasis menandai frasa yang diwarnai aksen pada judul About
+export const aboutTitle: TextSegment[] = [
+  { text: 'Data Analytics', emphasis: true },
+  { text: ' and ' },
+  { text: 'Machine Learning', emphasis: true },
+  { text: ' Enthusiast' },
+];
 
 export const aboutParagraphs: Paragraph[] = [
   {
@@ -87,9 +99,10 @@ export const aboutParagraphs: Paragraph[] = [
   },
 ];
 
+// width/height adalah ukuran intrinsik tiap berkas, bukan ukuran tampilnya
 export const techIcons: TechIconItem[] = [
-  { label: 'Python', src: pythonIcon },
-  { label: 'Jupyter', src: jupyterIcon },
-  { label: 'Tensorflow', src: tensorflowIcon },
-  { label: 'MySQL', src: mysqlIcon },
+  { label: 'Python', src: pythonIcon, width: 32, height: 32 },
+  { label: 'Jupyter', src: jupyterIcon, width: 1200, height: 1391 },
+  { label: 'Tensorflow', src: tensorflowIcon, width: 700, height: 400 },
+  { label: 'MySQL', src: mysqlIcon, width: 128, height: 128 },
 ];

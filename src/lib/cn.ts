@@ -1,6 +1,6 @@
 import { extendTailwindMerge } from 'tailwind-merge';
 
-// Nama token di bawah ini harus cermin dari @theme di src/styles/theme.css
+// Cukup daftarkan token berkunci non-numerik; kunci numerik sudah dikenali validator bawaan tailwind-merge
 export const cn = extendTailwindMerge({
   extend: {
     theme: {
@@ -18,11 +18,11 @@ export const cn = extendTailwindMerge({
         'signal-orange',
       ],
       font: ['monument', 'mono'],
-      text: ['caption', 'body', 'heading-sm', 'heading', 'display'],
-      leading: ['caption', 'body', 'heading-sm', 'heading', 'display'],
-      tracking: ['caption', 'body', 'heading-sm', 'heading', 'display'],
+      text: ['caption', 'body', 'heading-sm', 'heading', 'display', 'title', 'hero'],
+      leading: ['caption', 'body', 'heading-sm', 'heading', 'display', 'title', 'hero', 'prose'],
+      tracking: ['caption', 'body', 'heading-sm', 'heading', 'display', 'title', 'hero'],
       radius: ['3xl-2'],
-      container: ['page'],
+      container: ['page', 'prose'],
     },
   },
 });
