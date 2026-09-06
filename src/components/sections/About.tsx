@@ -14,7 +14,8 @@ export function About() {
   return (
     <Section id={sections.about.id} label={sections.about.label} headingId={headingId}>
       <div className="grid gap-32 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1.4fr)] lg:gap-80">
-        <Card className="overflow-hidden p-0">
+        {/* self-start supaya kartu setinggi fotonya, bukan meregang setinggi kolom teks */}
+        <Card className="self-start overflow-hidden p-0">
           <img
             src={about.portraitSrc}
             alt={about.portraitAlt}
@@ -34,8 +35,9 @@ export function About() {
             </Heading>
           </div>
 
+          {/* justify baru dari md ke atas: di bawah itu barisnya cuma ~28 karakter dan celah antar-katanya menganga */}
           {aboutParagraphs.map((paragraph, index) => (
-            <StatementText key={index}>
+            <StatementText key={index} className="max-w-none hyphens-auto md:text-justify">
               <SegmentedText segments={paragraph.segments} emphasis="strong" />
             </StatementText>
           ))}
