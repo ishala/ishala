@@ -1,6 +1,9 @@
 @import 'tailwindcss';
 @import './theme.css';
 
+/* legacy/ diarsipkan untuk verifikasi konten; tanpa ini Tailwind memindainya dan menerbitkan utility mati */
+@source not '../../legacy';
+
 /* @fontsource-variable belum menyediakan berkas CSS per-subset, jadi subset latin dideklarasikan langsung */
 @font-face {
   font-family: 'Inter Variable';
