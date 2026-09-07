@@ -1,5 +1,13 @@
 import type { Certification, Education, Experience, Project } from '@/types/content';
 
+// Judul empat kolom resume di situs lama; "Graduated" dipakai apa adanya, bukan "Education"
+export const resumeGroupTitles = {
+  experiences: 'Experiences',
+  education: 'Graduated',
+  certifications: 'Certifications',
+  projects: 'Projects',
+};
+
 export const experiences: Experience[] = [
   {
     title: 'MACHINE LEARNING COHORT 2023 BATCH 2',
@@ -79,7 +87,7 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    title: 'AMCC CODE (Competition of Developers) Comittee As Public Relations',
+    title: 'AMCC CODE (Competition of Developers) Committee As Public Relations',
     period: 'May - August 2022',
     bullets: [
       'Connecting organizations with event related committees.',
@@ -90,7 +98,7 @@ export const experiences: Experience[] = [
   {
     title: 'AMCC Goes to School (AGS)',
     period: 'January - March 2022',
-    // Bullets are byte-identical to the AMCC CODE entry in the old HTML; kept verbatim pending user decision.
+    // Bullet-nya identik dengan entri AMCC CODE di HTML lama; dibiarkan atas keputusan user, isinya akan ditulis ulang sendiri
     bullets: [
       'Connecting organizations with event related committees.',
       'Seek support from sponsors.',
@@ -102,8 +110,7 @@ export const experiences: Experience[] = [
 export const education: Education[] = [
   { institution: 'SMPN 1 Kertosono', period: '2015 - 2018' },
   { institution: 'SMAN 1 Kertosono', major: 'MIPA', period: '2018 - 2021' },
-  // "Univesitas" is a typo carried over verbatim from the old HTML; kept pending user decision.
-  { institution: 'Univesitas Amikom Yogyakarta', major: 'S1-Informatika', period: '2021 - Now' },
+  { institution: 'Universitas AMIKOM Yogyakarta', major: 'S1-Informatika', period: '2021 - Now' },
 ];
 
 export const certifications: Certification[] = [
@@ -147,8 +154,7 @@ export const certifications: Certification[] = [
 
 export const projects: Project[] = [
   {
-    // "Fine-Tunning" is a typo carried over verbatim from the old HTML; kept pending user decision.
-    title: 'Fine-Tunning GPT-2 Model For ABC Notation Generation',
+    title: 'Fine-Tuning GPT-2 Model For ABC Notation Generation',
     description:
       "A project that fine-tunes the pretrained GPT-2 model with Kaggle's ABC notation dataset to perform ABC notation generation. The output of the project is a package in PIP that can be used for free.",
   },

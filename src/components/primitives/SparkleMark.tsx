@@ -1,10 +1,9 @@
+import type { ComponentPropsWithoutRef } from 'react';
 import { cn } from '@/lib/cn';
 
-interface SparkleMarkProps {
-  className?: string;
-}
+type SparkleMarkProps = ComponentPropsWithoutRef<'svg'>;
 
-export function SparkleMark({ className }: SparkleMarkProps) {
+export function SparkleMark({ className, ...rest }: SparkleMarkProps) {
   return (
     <svg
       viewBox="0 0 40 40"
@@ -15,6 +14,7 @@ export function SparkleMark({ className }: SparkleMarkProps) {
       aria-hidden="true"
       focusable="false"
       className={cn('size-40 shrink-0 text-electric-cobalt', className)}
+      {...rest}
     >
       <path d="M20 3 L20 37" />
       <path d="M5.3 11.5 L34.7 28.5" />

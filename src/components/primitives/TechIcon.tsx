@@ -1,18 +1,18 @@
+import type { ComponentPropsWithoutRef } from 'react';
 import { Card } from '@/components/primitives/Card';
 import { MonoLabel } from '@/components/primitives/MonoLabel';
 import { cn } from '@/lib/cn';
 
-interface TechIconProps {
+interface TechIconProps extends ComponentPropsWithoutRef<'div'> {
   label: string;
   src: string;
   width: number;
   height: number;
-  className?: string;
 }
 
-export function TechIcon({ label, src, width, height, className }: TechIconProps) {
+export function TechIcon({ label, src, width, height, className, ...rest }: TechIconProps) {
   return (
-    <Card className={cn('flex flex-col items-center gap-16 p-24 text-center', className)}>
+    <Card className={cn('flex flex-col items-center gap-16 p-24 text-center', className)} {...rest}>
       <img
         src={src}
         alt=""
