@@ -5,19 +5,19 @@ import { MonoLabel } from '@/components/primitives/MonoLabel';
 import { StatementText } from '@/components/primitives/StatementText';
 import { hero, profile, sections } from '@/data/profile';
 
-const headingId = 'hero-heading';
+const heroHeadingId = 'hero-heading';
 
 export function Hero() {
   return (
     <Section
       id={sections.introduction.id}
       label={sections.introduction.label}
-      headingId={headingId}
+      labelledBy={heroHeadingId}
     >
       <div className="flex flex-col gap-32">
         <MonoLabel as="p">{hero.label}</MonoLabel>
 
-        <Display as="h1" id={headingId}>
+        <Display as="h1" id={heroHeadingId}>
           {/* {' '} load-bearing: tanpanya h1.textContent jadi "My Name IsMuhammad…" */}
           <span className="block">{hero.leadIn}</span>{' '}
           <span className="block text-electric-cobalt">{profile.fullName}</span>

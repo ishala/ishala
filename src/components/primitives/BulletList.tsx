@@ -8,7 +8,6 @@ interface BulletListProps extends ComponentPropsWithoutRef<'ul'> {
 export function BulletList({ items, className, ...rest }: BulletListProps) {
   return (
     <ul
-      // Tanpa flex: item flex kehilangan marker list-disc di Chrome
       className={cn(
         'list-disc space-y-8 pl-16 font-monument text-body leading-body tracking-body',
         className,

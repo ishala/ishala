@@ -12,7 +12,7 @@ export function CertificationGrid() {
         <Card as="li" key={certification.name} className="flex flex-col gap-12">
           <MonoLabel as="p">{certification.date}</MonoLabel>
 
-          <Heading as="h3" size="sm">
+          <Heading as="h4" size="sm">
             <ExternalLink href={certification.url}>{certification.name}</ExternalLink>
           </Heading>
 

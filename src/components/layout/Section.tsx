@@ -5,28 +5,27 @@ import { cn } from '@/lib/cn';
 
 interface SectionProps {
   id: string;
-  label?: string;
-  headingId?: string;
+  label: string;
   children: ReactNode;
   className?: string;
+  // Diisi bila section sudah punya heading sendiri; eyebrow lalu turun jadi <p> biasa
+  labelledBy?: string;
 }
 
-export function Section({ id, label, headingId, children, className }: SectionProps) {
+export function Section({ id, label, children, className, labelledBy }: SectionProps) {
+  const headingId = labelledBy ?? `${id}-heading`;
+
   return (
     <section
       id={id}
-      // Nama aksesibel diambil dari heading section; label mono hanyalah eyebrow, bukan judul
       aria-labelledby={headingId}
-      aria-label={headingId ? undefined : label}
-      // Nav sticky masih membungkus dua baris sampai di bawah lg (122-162px), jadi offsetnya lebih besar di sana
       className={cn('scroll-mt-200 py-100 lg:scroll-mt-100', className)}
     >
       <Container>
-        {label ? (
-          <MonoLabel as="p" className="mb-32 block">
-            {label}
-          </MonoLabel>
-        ) : null}
+        {/* Eyebrow sekaligus judul section: tanpanya outline dokumen kehilangan tingkat pengelompokan */}
+        <MonoLabel as={labelledBy ? 'p' : 'h2'} id={labelledBy ? undefined : headingId} className="mb-32 block">
+          {label}
+        </MonoLabel>
         {children}
       </Container>
     </section>

@@ -5,14 +5,13 @@ import { Heading } from '@/components/primitives/Heading';
 import { MonoLabel } from '@/components/primitives/MonoLabel';
 import type { Course } from '@/types/content';
 
-interface CourseListProps {
+interface CourseGridProps {
   courses: Course[];
 }
 
-export function CourseList({ courses }: CourseListProps) {
+export function CourseGrid({ courses }: CourseGridProps) {
   return (
-    // Daftar bersarang ini tidak punya judul terlihat, jadi namanya diberikan lewat aria-label
-    <ul aria-label="Assisted courses" className="mt-8 grid gap-16 md:grid-cols-2">
+    <ul className="mt-8 grid gap-16 md:grid-cols-2">
       {courses.map((course) => (
         <Card
           as="li"
@@ -22,7 +21,7 @@ export function CourseList({ courses }: CourseListProps) {
         >
           <MonoLabel as="p">{course.period}</MonoLabel>
 
-          <Heading as="h4" size="sm">
+          <Heading as="h5" size="sm">
             {course.certificateUrl ? (
               <ExternalLink href={course.certificateUrl}>{course.name}</ExternalLink>
             ) : (

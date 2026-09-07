@@ -8,11 +8,9 @@ import { StatementText } from '@/components/primitives/StatementText';
 import { TechIcon } from '@/components/primitives/TechIcon';
 import { about, aboutParagraphs, aboutTitle, sections, techIcons } from '@/data/profile';
 
-const headingId = 'about-heading';
-
 export function About() {
   return (
-    <Section id={sections.about.id} label={sections.about.label} headingId={headingId}>
+    <Section id={sections.about.id} label={sections.about.label}>
       <div className="grid gap-32 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1.4fr)] lg:gap-80">
         {/* self-start supaya kartu setinggi fotonya, bukan meregang setinggi kolom teks */}
         <Card className="self-start overflow-hidden p-0">
@@ -30,12 +28,11 @@ export function About() {
         <div className="flex flex-col gap-32">
           <div className="flex items-start gap-16">
             <SparkleMark />
-            <Heading as="h2" id={headingId}>
+            <Heading as="h3">
               <SegmentedText segments={aboutTitle} />
             </Heading>
           </div>
 
-          {/* justify baru dari md ke atas: di bawah itu barisnya cuma ~28 karakter dan celah antar-katanya menganga */}
           {aboutParagraphs.map((paragraph, index) => (
             <StatementText key={index} className="max-w-none hyphens-auto md:text-justify">
               <SegmentedText segments={paragraph.segments} emphasis="strong" />

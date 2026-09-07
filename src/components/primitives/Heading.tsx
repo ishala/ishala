@@ -9,7 +9,7 @@ const sizeClasses: Record<HeadingSize, string> = {
 };
 
 interface HeadingProps extends ComponentPropsWithoutRef<'h2'> {
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'p';
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p';
   size?: HeadingSize;
 }
 

@@ -12,7 +12,7 @@ export function EducationList() {
         <TimelineItem key={entry.institution}>
           <MonoLabel as="p">{entry.period}</MonoLabel>
 
-          <Heading as="h3" size="sm">
+          <Heading as="h4" size="sm">
             {entry.institution}
           </Heading>
 

@@ -9,7 +9,6 @@ import { resumeGroupTitles } from '@/data/resume';
 
 export function Resume() {
   return (
-    // Tanpa headingId: keempat kelompok punya h2 sendiri, jadi nama section datang dari aria-label
     <Section id={sections.resume.id} label={sections.resume.label}>
       <div className="flex flex-col gap-80">
         <ResumeGroup title={resumeGroupTitles.experiences}>

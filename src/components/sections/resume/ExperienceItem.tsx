@@ -3,7 +3,7 @@ import { BulletList } from '@/components/primitives/BulletList';
 import { Heading } from '@/components/primitives/Heading';
 import { MonoLabel } from '@/components/primitives/MonoLabel';
 import { TimelineItem } from '@/components/primitives/TimelineItem';
-import { CourseList } from '@/components/sections/resume/CourseList';
+import { CourseGrid } from '@/components/sections/resume/CourseGrid';
 import type { Experience } from '@/types/content';
 
 interface ExperienceItemProps {
@@ -15,7 +15,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
     <TimelineItem>
       {experience.period ? <MonoLabel as="p">{experience.period}</MonoLabel> : null}
 
-      <Heading as="h3" size="sm">
+      <Heading as="h4" size="sm">
         {experience.title}
       </Heading>
 
@@ -23,7 +23,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
 
       <BulletList items={experience.bullets} />
 
-      {experience.courses ? <CourseList courses={experience.courses} /> : null}
+      {experience.courses ? <CourseGrid courses={experience.courses} /> : null}
     </TimelineItem>
   );
 }

@@ -9,7 +9,7 @@ export function ProjectGrid() {
     <ul className="grid gap-16 md:grid-cols-2">
       {projects.map((project) => (
         <Card as="li" key={project.title} className="flex flex-col gap-16">
-          <Heading as="h3" size="sm">
+          <Heading as="h4" size="sm">
             {/* Proyek tanpa URL tetap kartu biasa, bukan tautan kosong seperti di situs lama */}
             {project.url ? (
               <ExternalLink href={project.url}>{project.title}</ExternalLink>

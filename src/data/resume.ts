@@ -98,7 +98,7 @@ export const experiences: Experience[] = [
   {
     title: 'AMCC Goes to School (AGS)',
     period: 'January - March 2022',
-    // Bullet-nya identik dengan entri AMCC CODE di HTML lama; dibiarkan atas keputusan user, isinya akan ditulis ulang sendiri
+    // Bullet-nya identik dengan entri AMCC CODE di HTML lama; dibiarkan atas keputusan user, yang akan menulis ulang isinya
     bullets: [
       'Connecting organizations with event related committees.',
       'Seek support from sponsors.',

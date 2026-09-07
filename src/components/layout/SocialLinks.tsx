@@ -34,12 +34,14 @@ export function SocialLinks({ variant = 'icon', className }: SocialLinksProps) {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              // Varian ikon tidak punya teks terlihat, jadi namanya harus datang dari aria-label
               aria-label={showIcon ? link.platform : undefined}
-              className="flex items-center text-ice-white transition-colors hover:text-signal-orange"
+              className={cn(
+                'flex items-center text-ice-white transition-colors hover:text-signal-orange',
+                showIcon && 'p-4 -m-4',
+              )}
             >
               {showIcon ? (
-                <Icon className="size-16" aria-hidden="true" />
+                <Icon className="size-20" aria-hidden="true" />
               ) : (
                 <MonoLabel>{link.platform}</MonoLabel>
               )}
