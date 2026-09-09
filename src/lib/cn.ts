@@ -25,5 +25,9 @@ export const cn = extendTailwindMerge({
       container: ['page', 'prose'],
       ease: ['reveal', 'exit', 'signature', 'decode', 'draw', 'magnetic'],
     },
+    // min-h-hero adalah @utility di global.css, bukan token @theme, jadi ia didaftarkan sebagai class group
+    classGroups: {
+      'min-h': [{ 'min-h': ['hero'] }],
+    },
   },
 });

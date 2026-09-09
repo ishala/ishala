@@ -11,17 +11,21 @@ interface SectionProps {
   className?: string;
   // Diisi bila section sudah punya heading sendiri; eyebrow lalu turun jadi <p> biasa
   labelledBy?: string;
+  // Lapis dekoratif full-bleed; komponennya sendiri yang memposisikan diri absolut di belakang isi
+  backdrop?: ReactNode;
 }
 
-export function Section({ id, label, children, className, labelledBy }: SectionProps) {
+export function Section({ id, label, children, className, labelledBy, backdrop }: SectionProps) {
   const headingId = labelledBy ?? `${id}-heading`;
 
   return (
     <section
       id={id}
       aria-labelledby={headingId}
-      className={cn('scroll-mt-200 py-100 lg:scroll-mt-100', className)}
+      // isolate mengurung z-index negatif backdrop supaya tidak jatuh ke belakang latar halaman
+      className={cn('relative isolate scroll-mt-200 py-100 lg:scroll-mt-100', className)}
     >
+      {backdrop}
       <Container>
         {/* Eyebrow sekaligus judul section: tanpanya outline dokumen kehilangan tingkat pengelompokan */}
         <Reveal>

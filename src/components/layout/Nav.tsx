@@ -1,11 +1,32 @@
+import { useEffect, useRef } from 'react';
 import { Container } from '@/components/layout/Container';
 import { SocialLinks } from '@/components/layout/SocialLinks';
 import { MonoLabel } from '@/components/primitives/MonoLabel';
 import { navSections, profile, sections } from '@/data/profile';
 
 export function Nav() {
+  const headerRef = useRef<HTMLElement>(null);
+
+  // Tingginya berubah saat item membungkus; hero membacanya agar lipatan berhenti tepat di bawah nav
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
+    const publishHeight = () => {
+      document.documentElement.style.setProperty('--nav-height', `${header.offsetHeight}px`);
+    };
+
+    publishHeight();
+    const observer = new ResizeObserver(publishHeight);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <header className="sticky top-0 z-10 border-b border-iron-edge bg-void-black/95 backdrop-blur">
+    <header
+      ref={headerRef}
+      className="sticky top-0 z-10 border-b border-iron-edge bg-void-black/95 backdrop-blur"
+    >
       <Container>
         <nav aria-label="Main" className="flex flex-wrap items-center gap-x-32 gap-y-16 py-20">
           <a
