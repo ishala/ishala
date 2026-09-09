@@ -84,4 +84,16 @@
   --reveal-offset: 24px;
   --lift-duration: 260ms;
   --lift-distance: 3px;
+  /* Decode label mono: durasi total penguncian, dan jeda antar karakter yang mengunci */
+  --ease-decode: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --decode-duration: 640ms;
+  --decode-step: 40ms;
+  /* Penggambaran garis rail: panjang, jadi kurvanya melambat panjang di ujung */
+  --ease-draw: cubic-bezier(0.22, 1, 0.36, 1);
+  --draw-duration: 1200ms;
+  /* Magnetic pointer: tarikan mengikuti kursor tanpa overshoot; lepasnya memakai --ease-signature */
+  --ease-magnetic: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --magnetic-duration: 160ms;
+  --magnetic-release-duration: 520ms;
+  --magnetic-pull: 8px;
 }

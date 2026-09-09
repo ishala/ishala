@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import type { CSSProperties } from 'react';
 
+import { useReducedMotion } from '@/lib/useReducedMotion';
+
 // Atas dilonggarkan jauh supaya elemen baru memudar keluar setelah benar-benar lewat, bukan
 // saat masih terbaca di tepi atas; bawah dirapatkan supaya masuknya terasa saat mulai terlihat
 const REVEAL_MARGIN = '60% 0px -12% 0px';
@@ -19,13 +21,16 @@ function showAll(elements: NodeListOf<HTMLElement>) {
 
 // Satu observer untuk seluruh halaman; elemen ditandai lewat atribut, jadi tidak perlu ref per komponen
 export function useRevealObserver() {
+  const isReducedMotion = useReducedMotion();
+
   useEffect(() => {
-    const elements = document.querySelectorAll<HTMLElement>('[data-reveal=""]');
+    // Dicari lewat atribut tanpa nilai tertentu supaya elemen yang sudah 'shown' ikut terambil saat preferensi berubah
+    const elements = document.querySelectorAll<HTMLElement>('[data-reveal]');
     if (!elements.length) return;
 
     // Dokumen tersembunyi tidak menjalankan IntersectionObserver sama sekali; tanpa jalan keluar ini
     // isi halaman akan tertinggal transparan selamanya di tab latar belakang
-    if (document.hidden || !('IntersectionObserver' in window)) {
+    if (isReducedMotion || document.hidden || !('IntersectionObserver' in window)) {
       showAll(elements);
       return;
     }
@@ -43,5 +48,5 @@ export function useRevealObserver() {
 
     elements.forEach((element) => observer.observe(element));
     return () => observer.disconnect();
-  }, []);
+  }, [isReducedMotion]);
 }

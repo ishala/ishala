@@ -23,7 +23,7 @@ export const cn = extendTailwindMerge({
       tracking: ['caption', 'body', 'heading-sm', 'heading', 'display', 'title', 'hero'],
       radius: ['3xl-2'],
       container: ['page', 'prose'],
-      ease: ['reveal', 'exit', 'signature'],
+      ease: ['reveal', 'exit', 'signature', 'decode', 'draw', 'magnetic'],
     },
   },
 });
