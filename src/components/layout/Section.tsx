@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Container } from '@/components/layout/Container';
 import { MonoLabel } from '@/components/primitives/MonoLabel';
+import { Reveal } from '@/components/primitives/Reveal';
 import { cn } from '@/lib/cn';
 
 interface SectionProps {
@@ -23,9 +24,15 @@ export function Section({ id, label, children, className, labelledBy }: SectionP
     >
       <Container>
         {/* Eyebrow sekaligus judul section: tanpanya outline dokumen kehilangan tingkat pengelompokan */}
-        <MonoLabel as={labelledBy ? 'p' : 'h2'} id={labelledBy ? undefined : headingId} className="mb-32 block">
-          {label}
-        </MonoLabel>
+        <Reveal>
+          <MonoLabel
+            as={labelledBy ? 'p' : 'h2'}
+            id={labelledBy ? undefined : headingId}
+            className="mb-32 block"
+          >
+            {label}
+          </MonoLabel>
+        </Reveal>
         {children}
       </Container>
     </section>

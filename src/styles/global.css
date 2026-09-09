@@ -51,6 +51,41 @@
   }
 }
 
+@layer base {
+  /* Reveal memakai transform, lift memakai translate — properti terpisah supaya tidak saling menimpa */
+
+  /* Didahulukan: elemen yang juga ber-data-reveal memakai daftar transisi milik reveal di bawah */
+  [data-lift] {
+    transition: translate var(--lift-duration) var(--ease-exit);
+  }
+
+  /* Keadaan tersembunyi sekaligus keadaan keluar: dipercepat di ujung, tanpa jeda stagger */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(var(--reveal-offset));
+    transition:
+      opacity var(--reveal-exit-duration) var(--ease-exit),
+      transform var(--reveal-exit-duration) var(--ease-exit),
+      translate var(--lift-duration) var(--ease-exit);
+  }
+
+  [data-reveal='shown'] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity var(--reveal-duration) var(--ease-reveal) calc(var(--reveal-index, 0) * var(--reveal-stagger)),
+      transform var(--reveal-duration) var(--ease-reveal) calc(var(--reveal-index, 0) * var(--reveal-stagger)),
+      translate var(--lift-duration) var(--ease-exit);
+  }
+
+  /* Naik dengan pantulan halus, turun kembali dengan kurva yang mempercepat */
+  [data-lift]:hover,
+  [data-lift]:focus-within {
+    translate: 0 calc(-1 * var(--lift-distance));
+    transition: translate var(--lift-duration) var(--ease-signature);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -62,5 +97,16 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  /* Tanpa ini elemen yang belum sempat terobservasi akan tertinggal transparan */
+  [data-reveal],
+  [data-lift],
+  [data-lift]:hover,
+  [data-lift]:focus-within {
+    opacity: 1;
+    transform: none;
+    translate: none;
+    transition: none;
   }
 }

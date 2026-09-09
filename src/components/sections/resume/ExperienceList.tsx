@@ -5,8 +5,12 @@ import { experiences } from '@/data/resume';
 export function ExperienceList() {
   return (
     <Timeline>
-      {experiences.map((experience) => (
-        <ExperienceItem key={experience.title} experience={experience} />
+      {experiences.map((experience, index) => (
+        <ExperienceItem
+          key={experience.title}
+          experience={experience}
+          revealIndex={index + 1}
+        />
       ))}
     </Timeline>
   );

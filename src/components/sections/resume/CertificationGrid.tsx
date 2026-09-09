@@ -4,12 +4,19 @@ import { ExternalLink } from '@/components/primitives/ExternalLink';
 import { Heading } from '@/components/primitives/Heading';
 import { MonoLabel } from '@/components/primitives/MonoLabel';
 import { certifications } from '@/data/resume';
+import { revealProps } from '@/lib/reveal';
 
 export function CertificationGrid() {
   return (
     <ul className="grid gap-16 md:grid-cols-2 lg:grid-cols-3">
-      {certifications.map((certification) => (
-        <Card as="li" key={certification.name} className="flex flex-col gap-12">
+      {certifications.map((certification, index) => (
+        <Card
+          as="li"
+          key={certification.name}
+          {...revealProps(index + 1)}
+          data-lift=""
+          className="flex flex-col gap-12"
+        >
           <MonoLabel as="p">{certification.date}</MonoLabel>
 
           <Heading as="h4" size="sm">

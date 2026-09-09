@@ -4,15 +4,17 @@ import { Heading } from '@/components/primitives/Heading';
 import { MonoLabel } from '@/components/primitives/MonoLabel';
 import { TimelineItem } from '@/components/primitives/TimelineItem';
 import { CourseGrid } from '@/components/sections/resume/CourseGrid';
+import { revealProps } from '@/lib/reveal';
 import type { Experience } from '@/types/content';
 
 interface ExperienceItemProps {
   experience: Experience;
+  revealIndex?: number;
 }
 
-export function ExperienceItem({ experience }: ExperienceItemProps) {
+export function ExperienceItem({ experience, revealIndex = 0 }: ExperienceItemProps) {
   return (
-    <TimelineItem>
+    <TimelineItem {...revealProps(revealIndex)}>
       {experience.period ? <MonoLabel as="p">{experience.period}</MonoLabel> : null}
 
       <Heading as="h4" size="sm">
